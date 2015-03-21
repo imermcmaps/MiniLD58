@@ -22,7 +22,6 @@
     },
     "body": {
         "bullet": true,
-        "linearVelocity": [-100, 0],
         "shapes": [
             { "type": "circle", "radius": 10, "restitution": 1.1, "density": 1, "friction":0}
         ]

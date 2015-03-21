@@ -9,6 +9,7 @@
 #include "Engine/Scene.hpp"
 #include "Engine/Game.hpp"
 #include "LevelScene.hpp"
+#include "Engine/util/Random.hpp"
 
 Ball::Ball(engine::Scene* scene): SpriteNode(scene) {
 }
@@ -26,4 +27,14 @@ void Ball::OnUpdate(sf::Time interval) {
 		((LevelScene*)m_scene)->AddPoint(false);
 		Delete();
 	}
+}
+bool Ball::initialize(Json::Value& root) {
+	if (!engine::SpriteNode::initialize(root)) {
+		return false;
+	}
+	engine::util::RandomFloat rand(-1, 1);
+	b2Vec2 f;
+	f.x = rand() > 0 ? 100 : -100;
+	f.y = rand()*100;
+	GetBody()->ApplyForceToCenter(f, true);
 }

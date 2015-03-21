@@ -15,6 +15,7 @@ class Ball: public engine::SpriteNode {
 public:
 	Ball(engine::Scene* scene);
 	virtual ~Ball();
+	virtual bool initialize(Json::Value& root);
 protected:
 	virtual void OnUpdate(sf::Time interval);
 

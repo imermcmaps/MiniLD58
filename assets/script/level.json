@@ -34,7 +34,7 @@
     "children": [
         {
             "position" : [50, 288],
-            "ai": true,
+            "ai": false,
             "childData": "assets/script/paddle.json"
         },
         {
@@ -46,9 +46,7 @@
         {
             "identifier": "balls",
             "children": [
-                {
-                    "childData": "assets/script/ball.json"
-                }
+
             ]
         },
 

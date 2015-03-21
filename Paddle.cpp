@@ -11,7 +11,7 @@
 #include "Engine/Scene.hpp"
 #include "Engine/Game.hpp"
 
-Paddle::Paddle(engine::Scene* scene): SpriteNode(scene), m_ai(false), m_rate(10.0) {
+Paddle::Paddle(engine::Scene* scene): SpriteNode(scene), m_ai(false), m_rate(5.0) {
 }
 void Paddle::OnUpdate(sf::Time interval) {
 	if (m_ai) {
@@ -38,9 +38,13 @@ void Paddle::UpdateAI(sf::Time interval) {
 	float dist = std::numeric_limits<float>::infinity();
 	for (auto ball : balls->GetChildren()) {
 		auto bpos = ball->GetGlobalPosition();
-		if (abs(pos.x - bpos.x)  < abs(dist)) {
-			closest = ball;
-			dist = (pos.x - bpos.x);
+		auto xvel = ball->GetBody()->GetLinearVelocity().x;
+		if (abs((pos.x - bpos.x)/xvel)  < abs(dist)) {
+			if ((pos.x - bpos.x) < 0 && xvel < 0
+					|| (pos.x - bpos.x) > 0 && xvel > 0){
+				closest = ball;
+				dist = abs((pos.x - bpos.x)/xvel);
+			}
 		}
 	}
 	if (closest) {
