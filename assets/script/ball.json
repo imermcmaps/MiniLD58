@@ -1,0 +1,32 @@
+{
+    "size": [20, 20],
+    "position" : [512, 288],
+    "type": "ball",
+    "origin": "center",
+    "sprite": {
+        "sheet": {
+            "texture":"assets/images/ball.png",
+            "sprites": [
+                {"top":0, "left": 0, "width": 5, "height": 5}
+            ]
+        },
+        "animations": {
+            "default": {
+                "frames": [0]
+            },
+            "hit": {
+                "frames": [0],
+                "speed": 0.8
+            }
+        }
+    },
+    "body": {
+        "bullet": true,
+        "linearVelocity": [-100, 0],
+        "shapes": [
+            { "type": "circle", "radius": 10, "restitution": 1.1, "density": 1, "friction":0}
+        ]
+    },
+    "children": [
+    ]
+}

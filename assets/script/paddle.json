@@ -1,0 +1,32 @@
+{
+    "size": [20, 100],
+    "type": "paddle",
+    "origin": "center",
+    "sprite": {
+        "sheet": {
+            "texture":"assets/images/paddle.png",
+            "sprites": [
+                {"top":0, "left": 0, "width": 1, "height": 1, "comment": "this is cheaty as fuck, just a white pixel"},
+                {"top":0, "left": 0, "width": 10, "height": 25}
+            ]
+        },
+        "animations": {
+            "default": {
+                "frames": [0]
+            },
+            "hit": {
+                "frames": [1],
+                "speed": 0.8
+            }
+        }
+    },
+    "body": {
+        "type": "static",
+        "shapes": [
+            { "type": "box", "width": 20, "height": 50, "angle": -8, "origin": [0, -25]},
+            { "type": "box", "width": 20, "height": 50, "angle": 8, "origin": [0, 25]}
+        ]
+    },
+    "children": [
+    ]
+}

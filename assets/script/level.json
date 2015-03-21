@@ -1,0 +1,71 @@
+{
+    "size": [1024, 576],
+    "pixelToMeter": 20,
+    "gravity": [0,0],
+    "light" : {
+        "enabled": false,
+        "ambient": [80, 80, 80]
+    },
+    "debug": false,
+    "ui": [
+        {
+            "type": "text",
+            "position": [50, 20],
+            "identifier": "score_l",
+            "text": {
+                "font": "assets/lcd_solid.ttf",
+                "size": 40,
+                "text": "0",
+                "align": "left"
+            }
+        },
+        {
+            "type": "text",
+            "position": [974, 20],
+            "identifier": "score_r",
+            "text": {
+                "font": "assets/lcd_solid.ttf",
+                "size": 40,
+                "text": "0",
+                "align": "right"
+            }
+        }
+    ],
+    "children": [
+        {
+            "position" : [50, 288],
+            "ai": true,
+            "childData": "assets/script/paddle.json"
+        },
+        {
+            "position" : [974, 288],
+            "ai": true,
+            "flipped": true,
+            "childData": "assets/script/paddle.json"
+        },
+        {
+            "identifier": "balls",
+            "children": [
+                {
+                    "childData": "assets/script/ball.json"
+                }
+            ]
+        },
+
+        {
+            "body": {
+                "type": "static",
+                "shapes": [
+                    {
+                        "type": "edge",
+                        "points": [[0, 0], [1024, 0]]
+                    },
+                    {
+                        "type": "edge",
+                        "points": [[0, 576], [1024, 576]]
+                    }
+                ]
+            }
+        }
+    ]
+}

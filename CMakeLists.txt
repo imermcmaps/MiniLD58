@@ -8,8 +8,12 @@ add_subdirectory(Engine ${CMAKE_CURRENT_BINARY_DIR}/engine)
 include("Engine/includes.cmake")
 include_directories(.)
 
-set(SOURCE_FILES 
-				main.cpp
+set(SOURCE_FILES
+            main.cpp
+            MiniLD58.cpp
+            Paddle.cpp
+            Ball.cpp
+            LevelScene.cpp
 )
 add_executable(MiniLD58 ${SOURCE_FILES})
 
